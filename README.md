@@ -181,6 +181,8 @@ Then you can run:
 git rebase --onto main <old-base> feature/login
 ```
 
+In plain English, this says: “take the commits from `feature/login` that are not in `<old-base>`, and replay them on top of `main`.”
+
 Use `--onto` when you want to move a branch to a new parent branch, especially when the branch should not keep the old branch history attached to it.
 
 ## Important warning

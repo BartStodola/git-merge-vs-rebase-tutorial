@@ -15,6 +15,16 @@ Alice and Bob are working on the same project.
 - Bob works on another feature branch called `feature/navbar`.
 - Both branches start from the same `main` branch.
 
+### Visual overview
+
+```mermaid
+flowchart LR
+    A[main] --> B[feature/login]
+    A --> C[feature/navbar]
+    B --> D[Commit: Add login form]
+    C --> E[Commit: Add navigation bar]
+```
+
 ### Initial state
 
 ```bash
@@ -24,6 +34,12 @@ git pull origin main
 git checkout -b feature/login
 git checkout main
 git checkout -b feature/navbar
+```
+
+If your local repository still uses `master` as the default branch, rename it first:
+
+```bash
+git branch -m main
 ```
 
 ### Alice makes a change
@@ -50,14 +66,14 @@ At this point, both branches have different commits based on the same `main` his
 
 ## Example 1: Git merge
 
-If Bob wants to bring Alice's work into his branch before sharing it, he can merge `main` into his branch.
+Alice and Bob both start from the same `main` branch. Bob wants to include the newest updates from `main` before he shares his work.
 
 ```bash
 git checkout feature/navbar
 git merge main
 ```
 
-Then, when Bob is ready to integrate his work into `main`, he merges his branch into `main`:
+Now Bob can merge his finished branch back into `main`:
 
 ```bash
 git checkout main
@@ -70,9 +86,17 @@ git merge feature/navbar
 - The history shows that two branches were combined.
 - This is good when you want to preserve the fact that work happened in parallel.
 
+### Merge result
+
+```text
+A---B---M   main
+     \ /
+      C---D feature/navbar
+```
+
 ## Example 2: Git rebase
 
-Bob can also replay his commits on top of the latest `main` branch:
+Bob can also replay his commits on top of the latest `main` branch instead of creating a merge commit:
 
 ```bash
 git checkout feature/navbar
@@ -91,6 +115,12 @@ git merge feature/navbar
 - Bob's commits are replayed as if they were created after the latest `main` changes.
 - The history stays linear and tidy.
 - This is useful when you want a cleaner commit history.
+
+### Rebase result
+
+```text
+A---B---C'---D'   main
+```
 
 ## Alice and Bob in plain language
 

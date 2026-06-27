@@ -3,7 +3,7 @@ set -euo pipefail
 
 mkdir -p demo-repo
 cd demo-repo
-git init
+git init -b main
 git config user.name "Alice"
 git config user.email "alice@example.com"
 
@@ -17,8 +17,7 @@ echo "login feature" >> app.txt
 git add app.txt
 git commit -m "Add login form"
 
-git checkout master
-
+git checkout main
 git checkout -b feature/navbar
 
 echo "navbar feature" >> app.txt

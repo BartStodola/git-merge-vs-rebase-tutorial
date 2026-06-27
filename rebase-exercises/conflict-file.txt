@@ -1,0 +1,4 @@
+﻿This is line 1: Common text for both branches.
+This is line 2: Base content that will be changed differently on each feature branch.
+This is line 3: Shared conclusion line.
+

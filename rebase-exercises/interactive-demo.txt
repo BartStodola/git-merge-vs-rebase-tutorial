@@ -1,2 +1,4 @@
 ﻿First interactive commit.
 
+Second commit content to practice rebase interactive.
+

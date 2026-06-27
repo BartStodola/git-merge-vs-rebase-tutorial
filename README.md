@@ -148,6 +148,37 @@ Use `git rebase` when:
 
 Rebasing rewrites commit history. Do not rebase commits that other people already pushed and are using.
 
+## Quick cheat sheet
+
+### Merge
+
+```bash
+git checkout feature/navbar
+git merge main
+```
+
+```bash
+git checkout main
+git merge feature/navbar
+```
+
+### Rebase
+
+```bash
+git checkout feature/navbar
+git rebase main
+```
+
+```bash
+git checkout main
+git merge feature/navbar
+```
+
+### When to use which
+
+- Use `merge` when you want to preserve branch history and show parallel work.
+- Use `rebase` when you want a clean linear history before merging.
+
 ## Summary
 
 - `merge` = combine and preserve history.

@@ -144,6 +144,43 @@ Use `git rebase` when:
 - You want a clean, linear history.
 - You are working on a feature branch and want to update it before merging.
 
+## When to use rebase --onto
+
+Use `git rebase --onto` when you want to move a branch onto a different base branch and replay only the commits that belong to that branch.
+
+This is useful when:
+
+- your feature branch was created from an older version of `main`
+- `main` has moved forward since then
+- you want to change the branch's starting point without keeping the old base history
+
+### Example
+
+```bash
+git checkout feature/login
+git rebase --onto main <old-base> feature/login
+```
+
+In this command:
+
+- `main` is the new base branch
+- `<old-base>` is the commit where your branch used to start from the old base
+- `feature/login` is the branch whose commits will be replayed
+
+A simple way to find the old base is:
+
+```bash
+git merge-base main feature/login
+```
+
+Then you can run:
+
+```bash
+git rebase --onto main <old-base> feature/login
+```
+
+Use `--onto` when you want to move a branch to a new parent branch, especially when the branch should not keep the old branch history attached to it.
+
 ## Important warning
 
 Rebasing rewrites commit history. Do not rebase commits that other people already pushed and are using.

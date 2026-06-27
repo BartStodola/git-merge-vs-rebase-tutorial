@@ -146,6 +146,8 @@ Use `git rebase` when:
 
 ## When to use rebase --onto
 
+Git does not have a `--into` flag. The command you want is `git rebase --onto`.
+
 Use `git rebase --onto` when you want to move a branch onto a different base branch and replay only the commits that belong to that branch.
 
 This is useful when:

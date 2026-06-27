@@ -1,0 +1,1 @@
+﻿Feature B commit changes the same line to create a conflict with feature A.
